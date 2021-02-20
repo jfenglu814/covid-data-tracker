@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { NativeSelect, FormControl } from "@material-ui/core";
+import { fetchStates } from "../../services";
 
-const StateSelector = (props) => {
-  return <h1>StateSelctor</h1>;
+import styles from "./StateSelector.module.css";
+
+const StateSelector = ({ selectState }) => {
+  const [states, setState] = useState([]);
+
+  useEffect(() => {
+    const fetchStatesInformation = async () => {
+      let stateList = await fetchStates();
+      stateList = stateList.map((state) => state.state);
+      setState(stateList);
+    };
+
+    fetchStatesInformation();
+    console.log(states, "statepicker");
+  }, []);
+
+  return (
+    <FormControl className={styles.formControl}>
+      <NativeSelect
+        defaultValue=""
+        onChange={(e) => selectState(e.target.value)}
+      >
+        <option value="US">United States</option>
+        {states.map((state) => (
+          <option value={state}>{state}</option>
+        ))}
+      </NativeSelect>
+    </FormControl>
+  );
 };
 
 export default StateSelector;
