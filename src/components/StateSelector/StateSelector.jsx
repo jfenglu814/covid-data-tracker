@@ -7,6 +7,7 @@ import styles from "./StateSelector.module.css";
 const StateSelector = ({ selectState }) => {
   const [states, setState] = useState([]);
 
+  //fetch list of states in the API
   useEffect(() => {
     const fetchStatesInformation = async () => {
       let stateList = await fetchStates();
@@ -18,6 +19,7 @@ const StateSelector = ({ selectState }) => {
     console.log(states, "statepicker");
   }, []);
 
+  //on state select pass current selected state back to parent component
   return (
     <FormControl className={styles.formControl}>
       <NativeSelect

@@ -4,7 +4,12 @@ import styles from "./App.module.css";
 import { fetchData } from "./services";
 
 function App() {
+  //covid data on each state
   const [usData, setData] = useState();
+  //current state selected
+  /*
+    TODO: create react context if there is time
+  */
   const [currentState, setState] = useState("");
 
   const selectState = async (state) => {
