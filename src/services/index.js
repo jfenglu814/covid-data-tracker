@@ -76,3 +76,26 @@ export const fetchStateVaccinationData = async (state) => {
     return response.data;
   } catch (error) {}
 };
+
+export const fetchCommodityData = async (commodity) => {
+  const url = "http://localhost:8000/api/commodity/";
+
+  try {
+    console.log(url);
+    const response = await axios.get(url + commodity);
+
+    return response.data;
+  } catch (error) {}
+};
+
+export const fetchSpendingData = async (bracket) => {
+  const url = "http://localhost:8000/api/spending/";
+  console.log(bracket);
+
+  try {
+    console.log(url);
+    const response = await axios.get(url + bracket);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {}
+};

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUSDailyData } from "../../services";
-import { Line, Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 import styles from "./Chart.module.css";
 
@@ -30,6 +30,12 @@ const Chart = ({ currentState }) => {
               fill: true,
             },
           ],
+        }}
+        options={{
+          title: {
+            display: true,
+            text: "New Positive Cases",
+          },
         }}
       />
     ) : null;

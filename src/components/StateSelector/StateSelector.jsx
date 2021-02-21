@@ -19,7 +19,7 @@ const StateSelector = ({ selectState }) => {
     console.log(states, "statepicker");
   }, []);
 
-  //on state select pass current selected state back to parent component
+  //on state select pass current selected state back to parent
   return (
     <FormControl className={styles.formControl}>
       <NativeSelect
