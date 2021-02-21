@@ -67,3 +67,12 @@ export const fetchStates = async () => {
     return response.data;
   } catch (error) {}
 };
+
+export const fetchStateVaccinationData = async (state) => {
+  const url = "http://localhost:8000/api/";
+  try {
+    const response = await axios.get(url + state);
+    //console.log(response);
+    return response.data;
+  } catch (error) {}
+};

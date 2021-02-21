@@ -5,10 +5,11 @@ import styles from "./Cards.module.css";
 
 const Cards = (props) => {
   console.log(props, "cards");
-  if (!props.data) {
+  if (!props.data || !props.vaccineData) {
     console.log("loading");
     return "Loading...";
   }
+
   return (
     <div className={styles.container}>
       <Grid container spacing={5} justify="center">
@@ -57,13 +58,17 @@ const Cards = (props) => {
               Vaccinations
             </Typography>
             <Typography variant="h5" gutterBottom>
-              Data
+              {
+                props.vaccineData[props.vaccineData.length - 1]
+                  .people_vaccinated
+              }
             </Typography>
             <Typography variant="body2" gutterBottom>
               Number of people Vaccinated
             </Typography>
           </CardContent>
         </Grid>
+        ;
       </Grid>
     </div>
   );
